@@ -3,9 +3,7 @@
   const content = body.innerText;
   const ret = (content.match(/[a-zA-Z]*/g) || []).filter(item => item !== '' && item.length > 3).map(item => item.toLowerCase());
   const words = difference(ret, basicWords);
-
-  console.log('生僻词：', words);
-
+  
   function replaceWord(node) {
     if (node === null) {
       return;
@@ -20,7 +18,6 @@
             if (words.includes(word.toLowerCase())) {
               const target = wordBook.find(item => item.word === word)
               if (target && target.trans) {
-                console.log(word, `[${target.trans}]`);
                 item.textContent = item.textContent.replace(word, `${word}(${target.trans})`)
               }
             }
