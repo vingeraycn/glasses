@@ -1,4 +1,5 @@
-﻿(function() {
+﻿
+function translatePage() {
   const body = document.body;
   const content = body.innerText;
   const ret = (content.match(/[a-zA-Z]*/g) || []).filter(item => item !== '' && item.length > 3).map(item => item.toLowerCase());
@@ -30,5 +31,12 @@
   }
 
   replaceWord(body.firstChild);
-})();
+}
 
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  // console.log(sender.tab ?"from a content script:" + sender.tab.url :"from the extension");
+  if(request.cmd === 'translate') {
+   translatePage()
+  }
+  sendResponse('我收到了你的消息！');
+});
