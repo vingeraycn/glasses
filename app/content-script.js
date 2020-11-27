@@ -3,7 +3,7 @@
   const content = body.innerText;
   const ret = (content.match(/[a-zA-Z]*/g) || []).filter(item => item !== '' && item.length > 3).map(item => item.toLowerCase());
   const words = difference(ret, basicWords);
-  
+
   function replaceWord(node) {
     if (node === null) {
       return;
