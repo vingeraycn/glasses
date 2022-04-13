@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Glasses",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Glasses for reader.",
   "author": "leihancn",
   "icons": {
@@ -14,20 +14,11 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "http://*/*",
-        "https://*/*"
-      ],
-      "js": [
-        "./lodash.difference.js",
-        "./config.js",
-        "./content-script.js"
-      ],
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["./lodash.difference.js", "./config.js", "./content-script.js"],
       "run_at": "document_end"
     }
   ],
-  "web_accessible_resources": [
-  ],
-  "permissions": [
-  ]
+  "web_accessible_resources": [],
+  "permissions": []
 }
